@@ -1,0 +1,37 @@
+Questão 08
+Esta é uma aplicação da distribuição hipergeométrica multivariada.
+
+a. Qual é p(3, 2)?
+p(3, 2) é a probabilidade de selecionar X=3 componentes do fornecedor 1, Y=2 do fornecedor 2 e, consequentemente, (6 - 3 - 2) = 1 componente do fornecedor 3.
+
+1. Calcular o número total de resultados (Denominador):
+O número total de maneiras de escolher 6 componentes de 30 é dado pela combinação C(30, 6):
+\text{Total} = \binom{30}{6} = \frac{30!}{6!24!} = 593.775 \text{ maneiras}
+
+2. Calcular o número de resultados favoráveis (Numerador):
+Usamos a regra do produto para encontrar o número de maneiras de obter a seleção desejada:
+
+ * Escolher 3 de F1 (que tem 8): 
+\binom{8}{3} = \frac{8!}{3!5!} = 56
+
+ * Escolher 2 de F2 (que tem 10): 
+\binom{10}{2} = \frac{10!}{2!8!} = 45
+
+ * Escolher 1 de F3 (que tem 12): 
+\binom{12}{1} = \frac{12!}{1!11!} = 12
+
+3. Calcular a probabilidade:
+p(3, 2) = \frac{\text{Resultados Favoráveis}}{\text{Resultados Totais}} = \frac{30.240}{593.775}
+
+p(3, 2) = \frac{672}{13.195} \approx 0,05093
+
+b. Obtenha p(x, y).
+Usando a mesma lógica, para selecionar x componentes de F1, y de F2, e (6 - x - y) de F3, a função de massa de probabilidade (fmp) conjunta p(x, y) é:
+
+p(x, y) = P(X=x, Y=y) = \frac{\binom{8}{x} \binom{10}{y} \binom{12}{6-x-y}}{\binom{30}{6}}
+
+Esta fórmula é válida para valores inteiros de x e y que satisfazem as seguintes condições (o domínio da função):
+ *  * x \le 8 (Não pode selecionar mais do que F1 possui)
+ * y \le 10 (Não pode selecionar mais do que F2 possui)
+ * x + y \le 6 (O total de x e y não pode exceder a amostra total de 6)
+ * 6 - x - y \le 12 (Sempre verdadeiro dado x,y \ge 0, pois x+y \ge -6)
